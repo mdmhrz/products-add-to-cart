@@ -35,3 +35,27 @@ for (const btn of wristSizeBtns) {
         btn.classList.add('border-purple-500')
     })
 }
+
+// Cart Quantity Calculate
+
+document.getElementById('positive').addEventListener('click', function () {
+    document.getElementById('cart-quantity').innerText++;
+})
+document.getElementById('negative').addEventListener('click', function () {
+    const currentQty = parseInt(document.getElementById('cart-quantity').innerText);
+    if (currentQty === 0) {
+        return
+    }
+    else {
+        document.getElementById('cart-quantity').innerText--;
+    }
+})
+
+
+
+
+
+
+
+
+
