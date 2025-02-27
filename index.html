@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Products Add to Cart Design</title>
     <!-- DaisyUI & Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0-beta.8/daisyui.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -27,7 +27,7 @@
 <body class="">
     <section class="px-4 py-4 grid grid-cols-1 md:grid-cols-2 gap-14 max-w-[1000px] mx-auto mt-[80px]">
         <div>
-            <img src="./images/cyan.png" alt="">
+            <img src="./images/purple.png" alt="">
         </div>
         <div>
             <!-- Products Name and ratings -->
@@ -36,12 +36,12 @@
                 <div>
                     <div class="mb-4 text-[14px]">
                         <div class="rating">
-                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400"
+                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400 cur" />
+                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400 cur"
                                 checked="checked" />
-                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400 cur" />
+                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400 cur" />
+                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400 cur" />
                         </div>
                         <span>(2 Reviews)</span>
                     </div>
@@ -76,13 +76,17 @@
                 <h1>Brand Color</h1>
                 <div>
                     <button
-                        class="border-[2px] cursor-pointer border-gray-300 w-6 h-6 rounded-full bg-purple-600"></button>
+                        class="w-6 h-6 rounded-full bg-purple-500 border-2 border-purple-600  cursor-pointer ring-button"
+                        id="purple-color"></button>
                     <button
-                        class="border-[2px] cursor-pointer border-gray-300 w-6 h-6 rounded-full bg-blue-400"></button>
+                        class="w-6 h-6 rounded-full bg-teal-500 border-2 border-gray-300 cursor-pointer  ring-button"
+                        id="teal-color"></button>
                     <button
-                        class="border-[2px] cursor-pointer border-gray-300 w-6 h-6 rounded-full bg-slate-600"></button>
+                        class="w-6 h-6 rounded-full bg-cyan-500 border-2 border-gray-300 cursor-pointer  ring-button"
+                        id="cyan-color"></button>
                     <button
-                        class="border-[2px] cursor-pointer border-gray-300 w-6 h-6 rounded-full bg-green-600"></button>
+                        class="w-6 h-6 rounded-full bg-gray-700 border-2 border-gray-300 cursor-pointer  ring-button"
+                        id="gray-color"></button>
                 </div>
             </div>
 
@@ -134,10 +138,7 @@
         </div>
     </section>
 
-
-
     <script src="./script.js"></script>
 </body>
-
 
 </html>
