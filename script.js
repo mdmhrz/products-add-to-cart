@@ -1,3 +1,5 @@
+
+// Brand Color
 const ringButtons = document.querySelectorAll('.ring-button');
 let productImageSrcStart = "../images/";
 for (let i = 0; i < ringButtons.length; i++) {
@@ -19,6 +21,17 @@ for (let i = 0; i < ringButtons.length; i++) {
         productImage.src = `${productImageSrcStart}${color}.png`
     })
 
-
 }
 
+// Wrist Size
+const wristSizeBtns = document.querySelectorAll('.wrist-size');
+
+for (const btn of wristSizeBtns) {
+    btn.addEventListener('click', function () {
+        for (const button of wristSizeBtns) {
+            button.classList.remove("border-purple-500")
+            button.classList.add("border-gray-300")
+        }
+        btn.classList.add('border-purple-500')
+    })
+}
