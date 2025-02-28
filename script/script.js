@@ -53,6 +53,11 @@ document.getElementById('negative').addEventListener('click', function () {
     }
 })
 
+function hello() {
+    console.log('hello');
+
+}
+
 
 
 
