@@ -110,16 +110,16 @@
                 </div>
             </div>
 
-            <!-- Add to Cart -->
+            <!-- Selected Quantity and Add to Cart -->
             <div class="flex gap-4">
                 <div class="text-[14px] inline-block font-semibold mb-4 border rounded-md border-gray-300">
                     <button id="negative" class="mr-2 cursor-pointer  font-normal py-2 px-3">-</button>
                     <span id="cart-quantity" class="font-normal">0</span>
                     <button id="positive" class="ml-2 cursor-pointer font-normal py-2 px-3">+</button>
                 </div>
-
+                <!-- Add to cart button -->
                 <div>
-                    <button
+                    <button id="add-to-cart"
                         class="mr-2 cursor-pointer font-normal bg-purple-700 text-white rounded-md py-2 hover:bg-purple-800 px-5">Add
                         to
                         Cart</button>
@@ -130,11 +130,11 @@
     </section>
     <section>
         <!-- Checkout -->
-        <div class="flex justify-center mt-10 hidden">
+        <div id="checkout-btn" class="flex justify-center mt-10 hidden">
             <div
                 class="bg-orange-400 rounded-3xl px-4 py-2 flex items-center justify-center gap-4 cursor-pointer hover:bg-orange-500">
                 <p class="text-white">Checkout</p>
-                <p class="px-3 text-orange-400 bg-white rounded-lg">1</p>
+                <p id="selected-qty" class="px-3 text-orange-400 bg-white rounded-lg">1</p>
             </div>
         </div>
     </section>

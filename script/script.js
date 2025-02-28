@@ -53,10 +53,30 @@ document.getElementById('negative').addEventListener('click', function () {
     }
 })
 
-function hello() {
-    console.log('hello');
 
-}
+// Add to Cart
+let cartCount = 0;
+
+document.getElementById('add-to-cart').addEventListener('click', function () {
+
+    const checkoutBtn = document.getElementById('checkout-btn');
+    const cartQtyElement = document.getElementById('cart-quantity');
+    let currentCartQty = parseInt(cartQtyElement.innerText) || 0;
+
+    if (currentCartQty > 0) {
+        checkoutBtn.classList.remove('hidden');
+        cartCount = cartCount + currentCartQty;
+    }
+
+    document.getElementById('selected-qty').innerHTML = cartCount;
+
+
+
+
+
+
+});
+
 
 
 
