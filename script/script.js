@@ -18,7 +18,9 @@ for (let i = 0; i < ringButtons.length; i++) {
         const productImage = document.getElementById('productImage');
 
         // productImage.src = productImageSrcStart + color + '.png'
-        productImage.src = `${productImageSrcStart}${color}.png`
+
+        productImage.src = productImageSrcStart + color + ".png";
+        // productImage.src = `${productImageSrcStart}${color}.png`
     })
 
 }
