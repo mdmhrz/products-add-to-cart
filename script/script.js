@@ -1,7 +1,7 @@
 
 // Brand Color
 const ringButtons = document.querySelectorAll('.ring-button');
-let productImageSrcStart = "./images/";
+let productImageSrcStart = "../images/";
 for (let i = 0; i < ringButtons.length; i++) {
     let ringButton = ringButtons[i]
 
