@@ -56,10 +56,10 @@ document.getElementById('negative').addEventListener('click', function () {
 
 // Add to Cart
 let cartCount = 0;
+const checkoutBtn = document.getElementById('checkout-btn');
 
 document.getElementById('add-to-cart').addEventListener('click', function () {
 
-    const checkoutBtn = document.getElementById('checkout-btn');
     const cartQtyElement = document.getElementById('cart-quantity');
     let currentCartQty = parseInt(cartQtyElement.innerText) || 0;
 
@@ -70,12 +70,13 @@ document.getElementById('add-to-cart').addEventListener('click', function () {
 
     document.getElementById('selected-qty').innerHTML = cartCount;
 
-
-
-
-
-
 });
+
+// Code for modal
+
+checkoutBtn.addEventListener('click', function () {
+    my_modal_4.showModal()
+})
 
 
 

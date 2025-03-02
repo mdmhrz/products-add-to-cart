@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal with Tailwind CSS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Open Modal Button -->
+    <button id="openModal" class="bg-blue-500 text-white px-4 py-2 rounded-lg mt-10 ml-10">
+        Open Modal
+    </button>
+
+    <!-- Modal Backdrop and Container -->
+    <div id="modal" class="fixed inset-0 z-50 hidden">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+
+        <!-- Modal Content -->
+        <div class="fixed inset-0 flex items-center justify-center">
+            <div class="bg-white rounded-lg shadow-lg w-11/12 md:w-1/2 lg:w-1/3 p-6">
+                <!-- Modal Header -->
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-semibold">Modal Title</h2>
+                    <button id="closeModal" class="text-gray-500 hover:text-gray-700">
+                        &times;
+                    </button>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="mb-4">
+                    <p>This is the modal content. You can add any text or components here.</p>
+                </div>
+
+                <!-- Modal Footer -->
+                <div class="flex justify-end">
+                    <button id="closeModal2" class="bg-gray-500 text-white px-4 py-2 rounded-lg mr-2">
+                        Close
+                    </button>
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded-lg">
+                        Save Changes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Get modal and buttons
+        const modal = document.getElementById('modal');
+        const openModalButton = document.getElementById('openModal');
+        const closeModalButton = document.getElementById('closeModal');
+        const closeModalButton2 = document.getElementById('closeModal2');
+
+        // Open modal
+        openModalButton.addEventListener('click', () => {
+            modal.classList.remove('hidden');
+        });
+
+        // Close modal
+        closeModalButton.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+        closeModalButton2.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+
+</html>
