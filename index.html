@@ -130,9 +130,9 @@
     </section>
     <section>
         <!-- Checkout -->
-        <div id="checkout-btn" class="flex justify-center mt-10 hidden">
-            <div
-                class="bg-orange-400 rounded-3xl px-4 py-2 flex items-center justify-center gap-4 cursor-pointer hover:bg-orange-500">
+        <div class="flex justify-center mt-10">
+            <div id="checkout-btn"
+                class="bg-orange-400 hidden rounded-3xl px-4 py-2 flex items-center justify-center gap-4 cursor-pointer hover:bg-orange-500">
                 <p class="text-white">Checkout</p>
                 <p id="selected-qty" class="px-3 text-orange-400 bg-white rounded-lg">1</p>
             </div>
@@ -141,29 +141,17 @@
 
 
     <!-- Modal Section -->
-    <!-- <section> -->
-    <!-- You can open the modal using ID.showModal() method -->
-    <!-- <div id="modal" class="">
-            <dialog id="my_modal_4" class="modal">
-                <div class="modal-box w-11/12 max-w-5xl">
-                    <h3 class="text-lg font-bold">Hello!</h3>
-                    <p class="py-4">Click the button below to close</p>
-                    <div class="modal-action">
-                        <form method="dialog">
-                            if there is a button, it will close the modal -->
-    <!-- <button class="btn">Close</button>
-                        </form>
-                    </div>
-                </div>
-            </dialog>
-        </div>
-    </section> -->
 
-    <section class="">
-        <div class="bg-gray-300 rounded-md p-4 absolute inset-60 flex items-center justify-center">
-            <h1>Your Cart Sumury</h1>
-            <button>Continue Shopping</button>
-            <button>Checkout</button>
+    <section id="modal" class="fixed inset-0  hidden">
+        <div id="modal-dark-bg" class="rounded-md z-20 p-4 absolute bg-black opacity-50 inset-0">
+        </div>
+        <div class="flex items-center justify-center z-30 fixed inset-0">
+            <div class="p-4 rounded-md bg-white">
+                <h1>Your Cart Sumury</h1>
+                <button id="continue-shopping" class="btn btn-primary">Continue Shopping</button>
+                <button>Checkout</button>
+
+            </div>
         </div>
     </section>
 

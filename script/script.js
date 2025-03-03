@@ -55,14 +55,14 @@ document.getElementById('negative').addEventListener('click', function () {
 
 
 // Add to Cart
-let cartCount = 0;
+
 const checkoutBtn = document.getElementById('checkout-btn');
 
 document.getElementById('add-to-cart').addEventListener('click', function () {
 
     const cartQtyElement = document.getElementById('cart-quantity');
     let currentCartQty = parseInt(cartQtyElement.innerText) || 0;
-
+    let cartCount = 0;
     if (currentCartQty > 0) {
         checkoutBtn.classList.remove('hidden');
         cartCount = cartCount + currentCartQty;
@@ -73,10 +73,37 @@ document.getElementById('add-to-cart').addEventListener('click', function () {
 });
 
 // Code for modal
+const modalBox = document.getElementById('modal')
 
 checkoutBtn.addEventListener('click', function () {
-    my_modal_4.showModal()
+    modalBox.classList.remove('hidden')
 })
+
+const continueShopping = document.getElementById('continue-shopping');
+
+continueShopping.addEventListener('click', function () {
+    modalBox.classList.add('hidden')
+})
+
+document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+        modalBox.classList.add('hidden')
+    }
+})
+
+
+
+
+// const modalDarkBg = document.getElementById('modal-dark-bg');
+
+// modalDarkBg.addEventListener('click', function (event) {
+//     if (event.target === modalDarkBg) {
+//         modalBox.classList.add('hidden')
+//     }
+// })
+
+
+
 
 
 
