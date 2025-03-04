@@ -4,181 +4,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products Add to Cart Design</title>
-    <!-- DaisyUI & Tailwind CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0-beta.8/daisyui.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- Google Poppins Font CDN -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-    <!-- Font Awesome CDN -->
-    <script src="https://kit.fontawesome.com/c4e937c9d9.js" crossorigin="anonymous"></script>
+    <title>Smart Watch Store</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: poppins;
+            font-family: 'Inter', sans-serif;
         }
     </style>
-
 </head>
 
-<body class="">
-    <section class="px-4 py-4 grid grid-cols-1 md:grid-cols-2 gap-14 max-w-[1000px] mx-auto mt-[80px]">
-        <div>
-            <img id="productImage" src="./images/purple.png" alt="">
+<body class="bg-gray-50 text-gray-900">
+    <section class="max-w-6xl mx-auto p-6 grid grid-cols-1 md:grid-cols-2 gap-12 mt-16">
+        <!-- Product Image -->
+        <div class="flex justify-center">
+            <img id="productImage" class="w-80 h-80 object-cover rounded-xl shadow-md" src="./images/purple.png"
+                alt="Smart Watch">
         </div>
+
+        <!-- Product Details -->
         <div>
-            <!-- Products Name and ratings -->
-            <div>
-                <h1 class="text-2xl font-bold mb-4">Classy Modern Smart Watch</h1>
-                <div>
-                    <div class="mb-4 text-[14px]">
-                        <div class="rating">
-                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400 cur" />
-                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400 cur"
-                                checked="checked" />
-                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400 cur" />
-                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400 cur" />
-                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400 cur" />
-                        </div>
-                        <span>(2 Reviews)</span>
-                    </div>
-                </div>
+            <h1 class="text-3xl font-bold">Classy Modern Smart Watch</h1>
+            <div class="flex items-center space-x-2 text-yellow-500 mt-2">
+                <span class="text-sm">★★★★★</span>
+                <span class="text-gray-600 text-sm">(2 Reviews)</span>
+            </div>
+            <p class="text-lg mt-4">
+                <span class="line-through text-gray-400">$99.00</span>
+                <span class="text-purple-600 font-semibold text-2xl">$79.00</span>
+            </p>
+            <p class="mt-4 text-gray-600 text-sm leading-relaxed">
+                A premium smartwatch with advanced features and sleek design. Designed for performance and style.
+            </p>
+
+            <!-- Color Selection -->
+            <h2 class="text-sm font-semibold mt-6">Select Color</h2>
+            <div class="flex gap-3 mt-2">
+                <button class="w-8 h-8 rounded-full bg-purple-500 border-2 border-purple-700 ring-button"
+                    id="purple-color"></button>
+                <button class="w-8 h-8 rounded-full bg-teal-500 border-2 border-gray-300 ring-button"
+                    id="teal-color"></button>
+                <button class="w-8 h-8 rounded-full bg-cyan-500 border-2 border-gray-300 ring-button"
+                    id="cyan-color"></button>
+                <button class="w-8 h-8 rounded-full bg-gray-700 border-2 border-gray-300 ring-button"
+                    id="gray-color"></button>
             </div>
 
-            <!-- Products Price and Description -->
-            <div>
-                <h1 class="mb-4"><span class="line-through text-[1.1rem] text-gray-400 font-light">$99.00</span> <span
-                        class="text-[1.6rem] text-purple-600 font-semibold">$79.00</span></h1>
-
-                <p class="mb-4 text-[13px]">I must explain to you how all this mistaken idea of denouncing pleasure and
-                    praising pain
-                    was born and I
-                    will give you a complete account of the system, and expound the actual teaching.</p>
+            <!-- Size Selection -->
+            <h2 class="text-sm font-semibold mt-6">Wrist Size</h2>
+            <div class="grid grid-cols-4 gap-4 mt-2">
+                <button class="wrist-size px-4 py-2 text-sm font-medium border rounded-md border-gray-300" id="size-S">S
+                    $69</button>
+                <button class="wrist-size px-4 py-2 text-sm font-medium border rounded-md border-gray-300" id="size-M">M
+                    $79</button>
+                <button class="wrist-size px-4 py-2 text-sm font-medium border rounded-md border-gray-300" id="size-L">L
+                    $89</button>
+                <button class="wrist-size px-4 py-2 text-sm font-medium border rounded-md border-gray-300"
+                    id="size-XL">XL $99</button>
             </div>
 
-            <!-- Type of Products -->
-            <table class="text-[14px] mb-4">
-                <tr class="text-left">
-                    <td class="font-semibold">Type:</td>
-                    <td class="pl-4">Watch</td>
-                </tr>
-                <tr class="text-left">
-                    <td class="font-semibold">Model:</td>
-                    <td class="pl-4">Forerunner 290XT</td>
-                </tr>
-            </table>
-
-            <!-- Brand Color -->
-            <div class="text-[14px] font-semibold mb-4">
-                <h1>Brand Color</h1>
-                <div>
-                    <button
-                        class="w-6 h-6 rounded-full bg-purple-500 border-2 border-purple-700  cursor-pointer ring-button"
-                        id="purple-color"></button>
-                    <button
-                        class="w-6 h-6 rounded-full bg-teal-500 border-2 border-gray-300 cursor-pointer  ring-button"
-                        id="teal-color"></button>
-                    <button
-                        class="w-6 h-6 rounded-full bg-cyan-500 border-2 border-gray-300 cursor-pointer  ring-button"
-                        id="cyan-color"></button>
-                    <button
-                        class="w-6 h-6 rounded-full bg-gray-700 border-2 border-gray-300 cursor-pointer  ring-button"
-                        id="gray-color"></button>
+            <!-- Quantity Selection & Add to Cart -->
+            <div class="flex gap-4 mt-6 items-center">
+                <div class="flex items-center border border-gray-300 rounded-md px-3 py-2">
+                    <button id="negative" class="text-lg">-</button>
+                    <span id="cart-quantity" class="mx-4 text-lg">0</span>
+                    <button id="positive" class="text-lg">+</button>
                 </div>
-            </div>
-
-            <!-- Wrist Size -->
-            <div class="text-[14px] font-semibold mb-10">
-                <h1 class="mb-2">Wrist Size</h1>
-                <div class="grid grid-cols-4 gap-4">
-                    <button
-                        class="wrist-size cursor-pointer hover:bg-gray-100 font-normal py-2 border rounded-md border-gray-300"
-                        id="size-S">S $69</button>
-                    <button
-                        class="wrist-size cursor-pointer hover:bg-gray-100 font-normal py-2 border rounded-md border-gray-300"
-                        id="size-M">M $79</button>
-                    <button
-                        class="wrist-size cursor-pointer hover:bg-gray-100 font-normal py-2 border rounded-md border-gray-300"
-                        id="size-L">L $89</button>
-                    <button
-                        class="wrist-size cursor-pointer hover:bg-gray-100 font-normal py-2 border rounded-md border-gray-300"
-                        id="size-XL">XL $99</button>
-
-                </div>
-            </div>
-
-            <!-- Selected Quantity and Add to Cart -->
-            <div class="flex gap-4">
-                <div class="text-[14px] inline-block font-semibold mb-4 border rounded-md border-gray-300">
-                    <button id="negative" class="mr-2 cursor-pointer  font-normal py-2 px-3">-</button>
-                    <span id="cart-quantity" class="font-normal">0</span>
-                    <button id="positive" class="ml-2 cursor-pointer font-normal py-2 px-3">+</button>
-                </div>
-                <!-- Add to cart button -->
-                <div>
-                    <button id="add-to-cart"
-                        class="mr-2 cursor-pointer font-normal bg-purple-700 text-white rounded-md py-2 hover:bg-purple-800 px-5">Add
-                        to
-                        Cart</button>
-                    <span class="mask mask-heart bg-purple-700 w-6 h-6 hover:bg-purple-800"></span>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section>
-        <!-- Checkout -->
-        <div class="flex justify-center mt-10">
-            <div id="checkout-btn"
-                class="bg-orange-400 hidden rounded-3xl px-4 py-2 flex items-center justify-center gap-4 cursor-pointer hover:bg-orange-500">
-                <p class="text-white">Checkout</p>
-                <p id="selected-qty" class="px-3 text-orange-400 bg-white rounded-lg">1</p>
+                <button id="add-to-cart"
+                    class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-md font-semibold">Add to
+                    Cart</button>
             </div>
         </div>
     </section>
 
+    <!-- Checkout Button -->
+    <div class="flex justify-center mt-10">
+        <div id="checkout-btn"
+            class="hidden bg-orange-500 text-white px-6 py-3 rounded-full cursor-pointer flex items-center gap-3">
+            <p>Checkout</p>
+            <span id="selected-qty" class="bg-white text-orange-500 px-3 py-1 rounded-full">0</span>
+        </div>
+    </div>
 
     <!-- Modal Section -->
-
-    <section id="modal" class="fixed inset-0 hidden">
-        <div id="modal-dark-bg" class="rounded-md z-20 p-4 absolute bg-black opacity-50 inset-0">
-        </div>
-        <div class="flex items-center justify-center z-30 fixed inset-0">
-            <div class="p-6 rounded-md bg-white">
-                <h1 class="text-center font-bold text-2xl mb-8">Your Cart Sumury</h1>
-                <table>
-                    <thead>
-                        <tr>
-                            <th class="text-left">Product Name</th>
-                            <th class="pl-8">Color</th>
-                            <th class="pl-8">Price</th>
-                            <th class="pl-8">Quantity</th>
-                            <th class="pl-8">Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="text-left">
-                            <td>Classy Modern Smart Watch</td>
-                            <td class="pl-8">Gray</td>
-                            <td class="pl-8 ">$<span>89</span></td>
-                            <td class="pl-8 text-center">01</td>
-                            <td class="pl-8 text-right">$<span>89</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div class="flex justify-end gap-5 mt-10">
-                    <button id="continue-shopping" class="btn btn-primary">Continue Shopping</button>
-                    <button id="checkout-final" class="btn btn-primary bg-purple-500 border-none">Checkout</button>
-                </div>
-
+    <section id="modal" class="fixed inset-0 hidden z-50 flex items-center justify-center">
+        <div id="modal-dark-bg" class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="relative bg-white p-6 rounded-md shadow-lg w-96">
+            <h1 class="text-xl font-semibold text-center">Your Cart Summary</h1>
+            <table id="cart-table" class="w-full mt-4">
+                <thead>
+                    <tr class="text-left text-sm font-semibold text-gray-700">
+                        <th>Product</th>
+                        <th>Color</th>
+                        <th>Price</th>
+                        <th>Qty</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm"></tbody>
+            </table>
+            <div class="text-right font-semibold mt-4">Total: $<span id="total-price">0.00</span></div>
+            <div class="flex justify-between mt-6">
+                <button id="continue-shopping" class="text-gray-600 hover:text-gray-900">Continue Shopping</button>
+                <button id="checkout-final" class="bg-purple-600 text-white px-4 py-2 rounded-md">Checkout</button>
             </div>
         </div>
     </section>
-
-
 
     <script src="./script/script.js"></script>
 </body>

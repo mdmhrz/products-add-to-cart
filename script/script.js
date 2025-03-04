@@ -1,128 +1,94 @@
-
-// Brand Color
 const ringButtons = document.querySelectorAll('.ring-button');
-let productImageSrcStart = "./images/";
-for (let i = 0; i < ringButtons.length; i++) {
-    let ringButton = ringButtons[i]
-
-    ringButton.addEventListener('click', function (event) {
-        const color = event.target.id.replace('-color', '')
-        for (let k = 0; k < ringButtons.length; k++) {
-            ringButtons[k].classList.remove('border-purple-700');
-            ringButtons[k].classList.add('border-gray-300');
-        }
-
-        ringButton.classList.add('border-purple-700');
-        // ringButton.classList.remove('border-gray-300');
-
-        const productImage = document.getElementById('productImage');
-
-        // productImage.src = productImageSrcStart + color + '.png'
-
-        productImage.src = productImageSrcStart + color + ".png";
-        // productImage.src = `${productImageSrcStart}${color}.png`
-    })
-
-}
-
-// Wrist Size
 const wristSizeBtns = document.querySelectorAll('.wrist-size');
+const cartQuantity = document.getElementById('cart-quantity');
+const addToCartBtn = document.getElementById('add-to-cart');
+const checkoutBtn = document.getElementById('checkout-btn');
+const selectedQty = document.getElementById('selected-qty');
+const cartTable = document.getElementById('cart-table');
+const modalBox = document.getElementById('modal');
+const modalDarkBg = document.getElementById('modal-dark-bg');
+const continueShopping = document.getElementById('continue-shopping');
+const checkoutFinal = document.getElementById('checkout-final');
+let cart = [];
+let productImageSrcStart = "./images/";
+let selectedColor = "purple";
+let selectedSize = "M";
+let selectedPrice = 79;
 
-for (const btn of wristSizeBtns) {
-    btn.addEventListener('click', function () {
-        for (const button of wristSizeBtns) {
-            button.classList.remove("border-purple-500")
-            button.classList.add("border-gray-300")
+// Handle color selection
+for (const button of ringButtons) {
+    button.addEventListener('click', function () {
+        for (const btn of ringButtons) {
+            btn.classList.replace('border-purple-700', 'border-gray-300');
         }
-        btn.classList.add('border-purple-500')
-    })
+        button.classList.replace('border-gray-300', 'border-purple-700');
+        selectedColor = button.id.replace('-color', '');
+        document.getElementById('productImage').src = productImageSrcStart + selectedColor + ".png";
+    });
 }
 
-// Cart Quantity Calculate
+// Handle size selection and update price
+for (const button of wristSizeBtns) {
+    button.addEventListener('click', function () {
+        for (const btn of wristSizeBtns) {
+            btn.classList.replace('border-purple-500', 'border-gray-300');
+        }
+        button.classList.replace('border-gray-300', 'border-purple-500');
+        selectedSize = button.id.split('-')[1];
+        selectedPrice = parseInt(button.textContent.match(/\d+/)[0]);
+    });
+}
 
-document.getElementById('positive').addEventListener('click', function () {
-    document.getElementById('cart-quantity').innerText++;
-})
-document.getElementById('negative').addEventListener('click', function () {
-    const currentQty = parseInt(document.getElementById('cart-quantity').innerText);
-    if (currentQty === 0) {
-        return
-    }
-    else {
-        document.getElementById('cart-quantity').innerText--;
-    }
-})
-
-
-// Add to Cart
-
-const checkoutBtn = document.getElementById('checkout-btn');
-
-document.getElementById('add-to-cart').addEventListener('click', function () {
-
-    const cartQtyElement = document.getElementById('cart-quantity');
-    let currentCartQty = parseInt(cartQtyElement.innerText) || 0;
-    let cartCount = 0;
-    if (currentCartQty > 0) {
-        checkoutBtn.classList.remove('hidden');
-        cartCount = cartCount + currentCartQty;
-    }
-
-    document.getElementById('selected-qty').innerHTML = cartCount;
-
+// Cart Quantity Management
+document.getElementById('positive').addEventListener('click', () => cartQuantity.innerText++);
+document.getElementById('negative').addEventListener('click', () => {
+    if (cartQuantity.innerText > 0) cartQuantity.innerText--;
 });
 
-// Code for modal
-const modalBox = document.getElementById('modal')
-
-checkoutBtn.addEventListener('click', function () {
-    modalBox.classList.remove('hidden')
-})
-
-const continueShopping = document.getElementById('continue-shopping');
-
-continueShopping.addEventListener('click', function () {
-    modalBox.classList.add('hidden')
-})
-
-document.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape') {
-        modalBox.classList.add('hidden')
+// Add to Cart
+addToCartBtn.addEventListener('click', function () {
+    let quantity = parseInt(cartQuantity.innerText);
+    if (quantity > 0) {
+        checkoutBtn.classList.remove('hidden');
+        let total = quantity * selectedPrice;
+        cart.push({ name: "Classy Modern Smart Watch", color: selectedColor, size: selectedSize, price: selectedPrice, quantity, total });
+        updateCartTable();
+        selectedQty.innerText = cart.reduce((acc, item) => acc + item.quantity, 0);
     }
-})
+});
 
-document.getElementById('checkout-final').addEventListener('click', function () {
-    alert('Click on OK for redirecting to payment method...')
-})
+// Update Cart Table
+function updateCartTable() {
+    let tbody = cartTable.querySelector('tbody');
+    if (!tbody) {
+        tbody = document.createElement('tbody');
+        cartTable.appendChild(tbody);
+    }
+    tbody.innerHTML = cart.map(item => `
+        <tr class="text-left">
+            <td>${item.name}</td>
+            <td class="pl-8">${item.color}</td>
+            <td class="pl-8">$${item.price}</td>
+            <td class="pl-8 text-center">${item.quantity}</td>
+            <td class="pl-8 text-right">$${item.total}</td>
+        </tr>`).join('');
 
+    // Add total row
+    let totalAmount = cart.reduce((sum, item) => sum + item.total, 0);
+    tbody.innerHTML += `
+        <tr class="text-left font-bold">
+            <td colspan="4" class="pl-8 text-right">Total:</td>
+            <td class="pl-8 text-right">$${totalAmount}</td>
+        </tr>`;
+}
 
-// Inserting Data to add to card dynamically;
+// Modal Handling
+checkoutBtn.addEventListener('click', () => modalBox.classList.remove('hidden'));
+continueShopping.addEventListener('click', () => modalBox.classList.add('hidden'));
+checkoutFinal.addEventListener('click', () => alert('Click OK to proceed to payment...'));
 
+document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') modalBox.classList.add('hidden');
+});
 
-const productsTable = document.getElementById('cart-table');
-
-const productsDetails = document.createElement('tbody');
-productsDetails.innerHTML = `
-    <tr class="text-left">
-        <td>Classy Modern Smart Watch</td>
-        <td class="pl-8">Gray</td>
-        <td class="pl-8 ">$<span>89</span></td>
-        <td class="pl-8 text-center">01</td>
-        <td class="pl-8 text-right">$<span>89</span></td>
-    </tr>
-`
-
-productsTable.appendChild(productsDetails)
-
-
-
-
-
-
-
-
-
-
-
-
-
+modalDarkBg.addEventListener('click', () => modalBox.classList.add('hidden'));
