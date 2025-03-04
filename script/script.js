@@ -91,16 +91,28 @@ document.addEventListener('keydown', function (event) {
     }
 })
 
+document.getElementById('checkout-final').addEventListener('click', function () {
+    alert('Click on OK for redirecting to payment method...')
+})
 
 
+// Inserting Data to add to card dynamically;
 
-// const modalDarkBg = document.getElementById('modal-dark-bg');
 
-// modalDarkBg.addEventListener('click', function (event) {
-//     if (event.target === modalDarkBg) {
-//         modalBox.classList.add('hidden')
-//     }
-// })
+const productsTable = document.getElementById('cart-table');
+
+const productsDetails = document.createElement('tbody');
+productsDetails.innerHTML = `
+    <tr class="text-left">
+        <td>Classy Modern Smart Watch</td>
+        <td class="pl-8">Gray</td>
+        <td class="pl-8 ">$<span>89</span></td>
+        <td class="pl-8 text-center">01</td>
+        <td class="pl-8 text-right">$<span>89</span></td>
+    </tr>
+`
+
+productsTable.appendChild(productsDetails)
 
 
 

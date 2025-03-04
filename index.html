@@ -142,14 +142,37 @@
 
     <!-- Modal Section -->
 
-    <section id="modal" class="fixed inset-0  hidden">
+    <section id="modal" class="fixed inset-0 hidden">
         <div id="modal-dark-bg" class="rounded-md z-20 p-4 absolute bg-black opacity-50 inset-0">
         </div>
         <div class="flex items-center justify-center z-30 fixed inset-0">
-            <div class="p-4 rounded-md bg-white">
-                <h1>Your Cart Sumury</h1>
-                <button id="continue-shopping" class="btn btn-primary">Continue Shopping</button>
-                <button>Checkout</button>
+            <div class="p-6 rounded-md bg-white">
+                <h1 class="text-center font-bold text-2xl mb-8">Your Cart Sumury</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="text-left">Product Name</th>
+                            <th class="pl-8">Color</th>
+                            <th class="pl-8">Price</th>
+                            <th class="pl-8">Quantity</th>
+                            <th class="pl-8">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-left">
+                            <td>Classy Modern Smart Watch</td>
+                            <td class="pl-8">Gray</td>
+                            <td class="pl-8 ">$<span>89</span></td>
+                            <td class="pl-8 text-center">01</td>
+                            <td class="pl-8 text-right">$<span>89</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="flex justify-end gap-5 mt-10">
+                    <button id="continue-shopping" class="btn btn-primary">Continue Shopping</button>
+                    <button id="checkout-final" class="btn btn-primary bg-purple-500 border-none">Checkout</button>
+                </div>
 
             </div>
         </div>
