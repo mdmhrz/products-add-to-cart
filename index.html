@@ -91,23 +91,23 @@
     <!-- Modal Section -->
     <section id="modal" class="fixed inset-0 hidden z-50 flex items-center justify-center">
         <div id="modal-dark-bg" class="absolute inset-0 bg-black opacity-50"></div>
-        <div class="relative bg-white p-6 rounded-md shadow-lg w-96">
+        <div class="relative bg-white p-6 rounded-md shadow-lg">
             <h1 class="text-xl font-semibold text-center">Your Cart Summary</h1>
             <table id="cart-table" class="w-full mt-4">
                 <thead>
                     <tr class="text-left text-sm font-semibold text-gray-700">
-                        <th>Product</th>
-                        <th>Color</th>
-                        <th>Price</th>
-                        <th>Qty</th>
-                        <th>Total</th>
+                        <th class="">Product</th>
+                        <th class="pl-8">Color</th>
+                        <th class="pl-8">Price</th>
+                        <th class="pl-8">Qty</th>
+                        <th class="pl-8">Total</th>
                     </tr>
                 </thead>
-                <tbody class="text-sm"></tbody>
             </table>
-            <div class="text-right font-semibold mt-4">Total: $<span id="total-price">0.00</span></div>
-            <div class="flex justify-between mt-6">
-                <button id="continue-shopping" class="text-gray-600 hover:text-gray-900">Continue Shopping</button>
+            <div class="flex justify-end mt-6 gap-4">
+                <button id="continue-shopping"
+                    class="hover:bg-blue-600-900 bg-blue-500 btn btn-primary rounded-md text-white px-3">Continue
+                    Shopping</button>
                 <button id="checkout-final" class="bg-purple-600 text-white px-4 py-2 rounded-md">Checkout</button>
             </div>
         </div>

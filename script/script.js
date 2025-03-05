@@ -64,6 +64,11 @@ function updateCartTable() {
         tbody = document.createElement('tbody');
         cartTable.appendChild(tbody);
     }
+
+    // Clear the existing content of the tbody
+    tbody.innerHTML = '';
+
+    // Add rows for each item in the cart
     tbody.innerHTML = cart.map(item => `
         <tr class="text-left">
             <td>${item.name}</td>
@@ -73,8 +78,10 @@ function updateCartTable() {
             <td class="pl-8 text-right">$${item.total}</td>
         </tr>`).join('');
 
-    // Add total row
+    // Calculate the total amount
     let totalAmount = cart.reduce((sum, item) => sum + item.total, 0);
+
+    // Add the total row only once
     tbody.innerHTML += `
         <tr class="text-left font-bold">
             <td colspan="4" class="pl-8 text-right">Total:</td>
