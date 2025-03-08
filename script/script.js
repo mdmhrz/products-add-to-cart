@@ -46,14 +46,25 @@ document.getElementById('negative').addEventListener('click', () => {
 });
 
 // Add to Cart
-addToCartBtn.addEventListener('click', function () {
+addToCartBtn.addEventListener('click', () => {
     let quantity = parseInt(cartQuantity.innerText);
     if (quantity > 0) {
         checkoutBtn.classList.remove('hidden');
         let total = quantity * selectedPrice;
-        cart.push({ name: "Classy Modern Smart Watch", color: selectedColor, size: selectedSize, price: selectedPrice, quantity, total });
+        cart.push({
+            name: "Classy Modern Smart Watch",
+            color: selectedColor,
+            size: selectedSize,
+            price: selectedPrice,
+            quantity, total
+        });
         updateCartTable();
-        selectedQty.innerText = cart.reduce((acc, item) => acc + item.quantity, 0);
+        // selectedQty.innerText = cart.reduce((acc, item) => acc + item.quantity, 0);
+        let totalQty = 0;
+        for (const item of cart) {
+            totalQty += item.quantity;
+        }
+        selectedQty.innerText = totalQty;
     }
 });
 
